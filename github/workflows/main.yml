@@ -3,6 +3,7 @@ name: Build Android APK from Zip
 on:
   push:
     branches: [ main ]
+  workflow_dispatch:
 
 jobs:
   build:
@@ -23,7 +24,7 @@ jobs:
         echo "Unzipping updated project..."
         unzip -q MuhammadiPublicSchoolApp.zip -d project_files/
         ls -R project_files/
-      run: 
+
     - name: Build APK with Gradle
       working-directory: ./project_files
       run: |
@@ -36,3 +37,4 @@ jobs:
         name: app-debug-apk
         path: ./project_files/app/build/outputs/apk/debug/app-debug.apk
         if-no-files-found: error
+        
