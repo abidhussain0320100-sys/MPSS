@@ -20,9 +20,11 @@ jobs:
 
     - name: Unzip Project Files
       run: |
-        echo "Unzipping project..."
+        echo "Unzipping updated project..."
         unzip -q MuhammadiPublicSchoolApp.zip -d project_files/
         ls -R project_files/
+
+      run: 
 
     - name: Build APK with Gradle
       working-directory: ./project_files
