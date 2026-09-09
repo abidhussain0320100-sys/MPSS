@@ -16,6 +16,9 @@ jobs:
     - name: Unzip Project
       run: |
         unzip MuhammadiPublicSchoolApp.zip -d .
+        if [ -d "MuhammadiPublicSchoolApp" ]; then
+          mv MuhammadiPublicSchoolApp/* .
+        fi
 
     - name: Set up JDK 17
       uses: actions/setup-java@v4
